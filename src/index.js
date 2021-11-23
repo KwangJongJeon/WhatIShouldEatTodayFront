@@ -8,7 +8,7 @@ import rootReducer from './modules';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 
-// Redux sotre
+// Redux store
 // composedWithDevTools => 크롬 익스텐션의 Redux Developer tools를 사용하기 위함
 const store = createStore(rootReducer, composeWithDevTools());
 
