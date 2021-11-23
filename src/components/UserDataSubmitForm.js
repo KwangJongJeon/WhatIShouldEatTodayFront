@@ -1,9 +1,11 @@
+import DistanceSelector from './DistanceSelector';
+import Categories from './Categories';
+
 const UserDataSubmitForm = ({
-  category, // 카테고리가 들어있는 객체
+  categories, // 카테고리가 들어있는 객체
   inputDistance, // 거리가 들어있는 객체
-  onInsertCategory,
-  onRemoveCategory,
   onChangeInput,
+  onToggle,
   onTransfer,
 }) => {
 
@@ -17,20 +19,14 @@ const UserDataSubmitForm = ({
 
   return (
     <div className={"UserSubmitForm"}>
-      <form onSubmit={onSubmit}>
-        <input
-          type={"range"}
-          id={"distance"}
-          value={inputDistance}
-          name={"distance"}
-          min={"0"}
-          max={5000}
-          defaultValue={1000}
-          list={"tickmarks"}
+      <form className={"submitForm"} onSubmit={onSubmit}>
+        <DistanceSelector
+          onChange={onChange}
         />
-        <datalist id={"tickmarks"}>
-
-        </datalist>
+        <Categories
+          categories={["1", "2"]}
+          onToggle={onToggle}
+        />
       </form>
     </div>
   )
