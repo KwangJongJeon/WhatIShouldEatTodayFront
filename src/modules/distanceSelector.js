@@ -11,7 +11,8 @@ const initialState = {
 const distanceSelector = handleActions(
   {
     [CHANGE_INPUT]: (state, action) => ({ ...state, distance: action.payload })
-  }, initialState
+  },
+  initialState
 );
 
 export default distanceSelector;

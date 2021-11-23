@@ -9,7 +9,6 @@ const CategoriesContainer = () => {
     input: categories.input,
     categories: categories.categories
   }));
-  console.log(categories);
 
   const dispatch = useDispatch();
   const onChangeInput = useCallback(input => dispatch(changeInput(input)), [dispatch]);
@@ -19,8 +18,6 @@ const CategoriesContainer = () => {
 
   // const [onChangeInput, onInsert, onToggle, onRemove] =
   //   useActions([changeInput, insert, toggle, remove], []);
-  console.log(onChangeInput);
-  console.log(onInsert);
 
   return (
     <Categories
