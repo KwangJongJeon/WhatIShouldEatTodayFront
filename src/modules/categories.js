@@ -52,3 +52,5 @@ const categories = handleActions(
   },
   initialState,
 );
+
+export default categories;
