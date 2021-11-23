@@ -1,5 +1,5 @@
 import DistanceSelector from './DistanceSelector';
-import Categories from './Categories';
+import CategoriesContainer from '../containers/CategoriesContainer';
 
 const UserDataSubmitForm = ({
   categories, // 카테고리가 들어있는 객체
@@ -15,7 +15,10 @@ const UserDataSubmitForm = ({
     onChangeInput();
   }
 
-  const onChange = e => onChangeInput(e.target.value);
+  const onChange = e => {
+    e.preventDefault()
+    onChangeInput(e.target.value);
+  }
 
   return (
     <div className={"UserSubmitForm"}>
@@ -23,10 +26,7 @@ const UserDataSubmitForm = ({
         <DistanceSelector
           onChange={onChange}
         />
-        <Categories
-          categories={["1", "2"]}
-          onToggle={onToggle}
-        />
+        <CategoriesContainer />
       </form>
     </div>
   )

@@ -1,13 +1,15 @@
-const CategoryItem = (category, onToggle) => {
+const CategoryItem = ({category, onToggle, onRemove}) => {
   return (
     <div>
       <input
         type={"checkbox"}
-        checked={category.selected}
+        id={category.id}
         onClick={() => onToggle(category.id)}
+        checked={category.selected}
         readOnly={true}
       />
-      <label htmlFor={category.id}>{category.name}</label>
+      selected: {category.selected? "true " : "false "}
+      <span style={{textDecoration: category.selected? 'line-through' : 'none'}}>{category.text}</span>
     </div>
   )
 }

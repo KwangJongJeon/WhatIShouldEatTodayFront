@@ -18,18 +18,20 @@ const Categories = ({
 
   return (
     <div>
+      {categories.text? categories : categories[0].text}
       <form onSubmit={onSubmit}>
         <input value={input} onChange={onChange}/>
         <button type={'submit'}>등록</button>
       </form>
-      <div className={"category"}>
-      {categories.map(category => (
-        <CategoryItem
-          category={category}
-          key={category.id}
-          onToggle={onToggle}
-        />
-      ))}
+      <div className={'category'}>
+        {categories.map(category => (
+          <CategoryItem
+            category={category}
+            key={category.id}
+            onToggle={onToggle}
+            onRemove={onRemove}
+          />
+        ))}
       </div>
     </div>
   )

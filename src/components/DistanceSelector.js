@@ -5,7 +5,7 @@ const DistanceSelector = (onChange) => {
 
 
   return(
-    <div className={DistanceSelector}>
+    <div className={'distance'}>
       <input
         type={"range"}
         min={minDistance}
