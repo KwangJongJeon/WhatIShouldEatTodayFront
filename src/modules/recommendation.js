@@ -9,10 +9,10 @@ const POST_RECOMMENDATION_FAILURE = 'recommendation/POST_RECOMMENDATION_FAILURE'
 
 // thunk 함수를 생성
 // thunk 함수는 내부에서 시작할 때, 성공했을 때, 실패했을 때 다른 액션을 디스패치한다.
-export const postRecommendation = (latitude, longtitude, distance, categories) => async dispatch => {
+export const postRecommendation = (latitude, longitude, distance, categories) => async dispatch => {
     dispatch({type: POST_RECOMMENDATION}); // 요청이 시작된 것을 알림
     try {
-        const response = await api.postRecommendation(latitude, longtitude, distance, categories);
+        const response = await api.postRecommendation(latitude, longitude, distance, categories);
         dispatch({
             type: POST_RECOMMENDATION_SUCCESS,
             payload: response.data
