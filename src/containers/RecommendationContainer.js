@@ -2,6 +2,7 @@ import {useSelector} from "react-redux";
 import Recommendation from "../components/Recommendation";
 import { postRecommendation } from '../modules/recommendation';
 import connect from 'react-redux/lib/connect/connect';
+import { useState } from 'react';
 
 const { useEffect } = React
 const RecommendationContainer = ({
@@ -9,15 +10,27 @@ const RecommendationContainer = ({
     result,
     loadingResult
 }) => {
-    const { latitude, longitude, distance, categories } =
+  const { latitude, setLatitude } = useState(0);
+  const { longitude, setLongitude } = useState(0);
+    const { distance, categories } =
         useSelector(({categories, distanceSelector, coordinates}) => ({
         categories: categories.categories,
-        latitude: coordinates.latitude,
-        longitude: coordinates.longitude,
         distance: distanceSelector.distance,
     }));
 
     useEffect(() => {
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude.toString());
+          setLongitude(position.coords.longitude.toString());
+        },
+        (error) => {
+          /** 에러 처리 로직이 들어가야함 */
+          console.error("Error code: " + error.code + " - " + error.message);
+        }
+      )
+      postRecommendation(latitude, longitude, distance, categories);
         postRecommendation(latitude, longitude, distance, categories);
     }, postRecommendation);
 
