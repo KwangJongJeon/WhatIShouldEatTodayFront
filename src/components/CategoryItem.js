@@ -1,4 +1,4 @@
-const CategoryItem = ({category, onToggle, onRemove}) => {
+const CategoryItem = ({category, onToggle}) => {
   return (
     <div>
       <input

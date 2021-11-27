@@ -10,7 +10,7 @@ const UserDataSubmitForm = ({
 
   return (
     <div className={"UserSubmitForm"}>
-      <form className={"submitForm"} onSubmit={onSubmit}>
+      <form className={"submitForm"}>
         <DistanceSelector distance={distance} onChangeInput={onChangeDistance}/>
         <Categories categories={categories} onToggle={onToggle}/>
       </form>

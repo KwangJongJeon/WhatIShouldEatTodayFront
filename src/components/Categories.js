@@ -2,6 +2,7 @@ import CategoryItem from './CategoryItem';
 
 const Categories = ({
   categories,
+  onToggle
 }) => {
 
 
@@ -12,6 +13,7 @@ const Categories = ({
         {categories.map(category => (
           <CategoryItem
             category={category}
+            onToggle={onToggle}
             key={category.id}
           />
         ))}

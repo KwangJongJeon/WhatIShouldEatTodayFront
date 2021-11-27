@@ -9,13 +9,14 @@ import rootReducer from './modules';
 import { Provider } from 'react-redux';
 import {createLogger} from "redux-logger/src";
 import ReduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
 const logger = createLogger();
 
 // Redux store
-const store = createStore(rootReducer,  applyMiddleware(logger, ReduxThunk));
+const store = createStore(rootReducer,  composeWithDevTools(applyMiddleware(logger, ReduxThunk)));
 
 ReactDOM.render(
   <Provider store={store}>

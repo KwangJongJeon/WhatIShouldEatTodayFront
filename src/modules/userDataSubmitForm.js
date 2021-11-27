@@ -8,11 +8,22 @@ export const categoryToggle = createAction(CATEGORY_TOGGLE, id=>id);
 
 const initialState = {
   distance: 1000,
-  categories: [{
+  categories: [
+    {
     id: 1,
     text: '한식',
     selected: false,
-  },
+    },
+    {
+    id: 2,
+    text: '일식',
+    selected: false,
+    },
+    {
+      id: 3,
+      text: '양식',
+      selected: true,
+    }
   ],
   coordinate: {
     latitude: 36.3376482,
@@ -26,10 +37,9 @@ const userDataSubmitForm = handleActions(
     [CHANGE_DISTANCE]: (state, action) => ({...state, distance: action.payload}),
     [CATEGORY_TOGGLE]: (state, action) => ({
       ...state,
-      categories: state.categories.map(category => category.id === action.payload ? {
-        ...category,
-        selected: !category.selected
-      } : category)
+      categories: state.categories.map(category => category.id === action.payload ?
+        { ...category, selected: !category.selected }
+        : category)
     })
   },
   initialState
