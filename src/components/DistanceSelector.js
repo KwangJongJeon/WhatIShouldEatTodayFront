@@ -11,9 +11,7 @@ const DistanceSelector = ({distance, onChangeInput}) => {
   return(
 
     <div className={'distance'}>
-      <div>
-      Distance: {typeof(distance)}
-      </div>
+
       <input
         type={"range"}
         min={minDistance}

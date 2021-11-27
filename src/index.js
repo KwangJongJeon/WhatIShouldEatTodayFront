@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './modules';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import { createLogger } from 'redux-logger/src';
+import ReduxThunk from 'redux-thunk';
 
+// import { composeWithDevTools } from 'redux-devtools-extension';
+
+
+const logger = createLogger();
 // Redux store
-// composedWithDevTools => 크롬 익스텐션의 Redux Developer tools를 사용하기 위함
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer, applyMiddleware(logger, ReduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>
