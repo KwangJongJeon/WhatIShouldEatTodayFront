@@ -8,8 +8,7 @@ const CategoryItem = ({category, onToggle}) => {
         checked={category.selected}
         readOnly={true}
       />
-      selected: {category.selected? "true " : "false "}
-      <span style={{textDecoration: category.selected? 'line-through' : 'none'}}>{category.text}</span>
+      <span>{category.text}</span>
     </div>
   )
 }
