@@ -1,9 +1,9 @@
-import UserDataSubmitForm from './components/UserDataSubmitForm';
+import UserDataSubmitFormContainer from './containers/UserDataSubmitFormContainer';
 
 const App = () => {
   return (
     <div>
-      <UserDataSubmitForm/>
+      <UserDataSubmitFormContainer/>
     </div>
   )
 }

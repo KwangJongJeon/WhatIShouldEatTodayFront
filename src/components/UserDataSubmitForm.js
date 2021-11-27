@@ -1,21 +1,18 @@
-import CategoriesContainer from '../containers/CategoriesContainer';
-import DistanceSelectorContainer from '../containers/DistanceSelectorContainer';
+import Categories from './Categories';
+import DistanceSelector from './DistanceSelector';
 
 const UserDataSubmitForm = ({
-  onTransfer,
+  categories,
+  distance,
+  onToggle,
+  onChangeDistance
 }) => {
-
-  const onSubmit = e => {
-    onTransfer();
-  }
-
 
   return (
     <div className={"UserSubmitForm"}>
       <form className={"submitForm"} onSubmit={onSubmit}>
-        <DistanceSelectorContainer
-        />
-        <CategoriesContainer />
+        <DistanceSelector distance={distance} onChangeInput={onChangeDistance}/>
+        <Categories categories={categories} onToggle={onToggle}/>
       </form>
     </div>
   )
