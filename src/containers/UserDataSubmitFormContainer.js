@@ -1,44 +1,35 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect, useState } from 'react';
-import { categoryToggle, changeDistance } from '../modules/userDataSubmitForm';
+import { useCallback } from 'react';
+import { categoryToggle, changeDistance, getCoordinate } from '../modules/userDataSubmitForm';
 import UserDataSubmitForm from '../components/UserDataSubmitForm';
+import { usePosition } from '../lib/usePosition';
 
 const UserDataSubmitFormContainer = () => {
 
-  const [ latitudeInput, setLatitudeInput ] = useState('');
-  const [ longitudeInput, setLongitudeInput ] = useState('');
+  const {latitude, longitude} = usePosition();
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLatitudeInput(position.coords.latitude.toString());
-        setLongitudeInput(position.coords.longitude.toString());
-      },
-      (err) => {
-        console.error("Error code: " + err.code + "-" + err.message);
-      }
-    )
-  })
-
-  const {distance, categories} = useSelector(({userDataSubmitForm}) => ({
+  const {distance, categories, coordinate} = useSelector(({userDataSubmitForm}) => ({
     distance: userDataSubmitForm.distance,
     categories: userDataSubmitForm.categories,
     coordinate: {
-      latitude: latitudeInput,
-      longitude: longitudeInput
+      latitude: latitude,
+      longitude: longitude
     }
   }));
 
   const dispatch = useDispatch();
   const onToggle = useCallback(id => dispatch(categoryToggle(id)), [dispatch]);
   const onChangeDistance = useCallback(distance => dispatch(changeDistance(distance)), [dispatch]);
+  const onGetCoordinate = useCallback((latitude, longitude) => dispatch(getCoordinate(latitude, longitude)), [dispatch]);
 
   return (
     <UserDataSubmitForm
       distance={distance}
+      coordinate={coordinate}
       categories={categories}
       onToggle={onToggle}
       onChangeDistance={onChangeDistance}
+      onGetCoordinate={onGetCoordinate}
     />
   )
 }
