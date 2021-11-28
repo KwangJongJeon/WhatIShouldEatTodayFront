@@ -3,12 +3,14 @@ import categories from './categories';
 import distanceSelector from './distanceSelector';
 import recommendation from "./recommendation";
 import userDataSubmitForm from './userDataSubmitForm';
+import auth from './auth';
 
 const rootReducer = combineReducers({
   categories,
   distanceSelector,
   recommendation,
-  userDataSubmitForm
+  userDataSubmitForm,
+  auth
 })
 
 export default rootReducer;
