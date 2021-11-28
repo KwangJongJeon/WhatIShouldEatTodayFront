@@ -1,9 +1,8 @@
+import './index.css';
 import UserDataSubmitFormContainer from './containers/UserDataSubmitFormContainer';
-import { Route, Router, Routes, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-import UserDataSubmitPage from './pages/UserDataSubmitPage';
-import test from './test';
 import RecommendationResult from './pages/RecommendationResult';
 
 const App = () => {
