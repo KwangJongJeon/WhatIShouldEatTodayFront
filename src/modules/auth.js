@@ -13,7 +13,7 @@ export const changeField = createAction(
   }),
 );
 
-const initializeForm = createAction(INITIALIZE_FORM, form => form); // register, login
+export const initializeForm = createAction(INITIALIZE_FORM, form => form); // register, login
 
 const initialState = {
   register: {
@@ -23,7 +23,7 @@ const initialState = {
     username: '',
   },
   login: {
-    username: '',
+    userEmail: '',
     password: ''
   }
 }
