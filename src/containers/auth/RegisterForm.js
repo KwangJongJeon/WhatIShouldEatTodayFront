@@ -28,12 +28,12 @@ const RegisterForm = () => {
   // 폼 등록 이벤트 핸들러
   const onSubmit = e => {
     e.preventDefault();
-    const { userEmail, password, passwordConfirm, username } = form;
-    if(password !== passwordConfirm) {
+    const { memberEmail, memberPw, memberPwConfirm, memberName, phoneNumber } = form;
+    if(memberPw !== memberPwConfirm) {
       // TODO: 오류 처리
       return;
     }
-    dispatch(register({userEmail, password, username}));
+    dispatch(register({memberEmail, memberPw, memberName, phoneNumber}));
   }
 
   // 컴포넌트가 처음 렌더링 될 때 form을 초기화 함

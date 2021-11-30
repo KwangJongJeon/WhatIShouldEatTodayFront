@@ -66,40 +66,49 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
       <h3>{text}</h3>
       <form onSubmit={onSubmit}>
         <StyledInput
-          autoComplete={"userEmail"}
-          name={"userEmail"}
+          autoComplete={"memberEmail"}
+          name={"memberEmail"}
           placeholder={"아이디"}
           onChange={onChange}
-          value={form.userEmail}
+          value={form.memberEmail}
         />
         <StyledInput
           autoComplete={"new-password"}
-          name={"password"}
+          name={"memberPw"}
           placeholder={"비밀번호"}
           type={"password"}
           onChange={onChange}
-          value={form.password}
+          value={form.memberPw}
         />
         {type === 'register' && (
           <>
           <StyledInput
             autoComplete={"new-password"}
-            name={"passwordConfirm"}
+            name={"memberPwConfirm"}
             placeholder={"비밀번호 확인"}
             type={"password"}
             onChange={onChange}
-            value={form.passwordConfirm}
+            value={form.memberPwConfirm}
             />
             <StyledInput
-            autoComplete={"username"}
-            name={"username"}
+            autoComplete={"memberName"}
+            name={"memberName"}
+
             placeholder={"사용자 이름"}
             onChange={onChange}
-            value={form.username}
+            value={form.memberName}
             />
+            <StyledInput
+              autoComplete={"phoneNumber"}
+              name={"phoneNumber"}
+              placeholder={"핸드폰 번호"}
+              onChange={onChange}
+              value={form.phoneNumber}
+            />
+
           </>
         )}
-        <ButtonWithMarginTop cyan fullWidth>text</ButtonWithMarginTop>
+        <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
       </form>
       <Footer>
         {type === 'login' ?

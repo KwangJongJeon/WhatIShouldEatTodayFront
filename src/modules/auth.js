@@ -29,9 +29,11 @@ export const changeField = createAction(
 
 export const initializeForm = createAction(INITIALIZE_FORM, form => form); // register, login
 
-export const register = createAction(REGISTER, ({userEmail, password}) => ({
-  userEmail,
-  password
+export const register = createAction(REGISTER, ({memberEmail, memberPw, memberName, phoneNumber}) => ({
+  memberEmail,
+  memberPw,
+  memberName,
+  phoneNumber,
 }))
 
 export const login = createAction(LOGIN, ({ userEmail, password }) => ({
@@ -49,10 +51,11 @@ export function* authSage() {
 
 const initialState = {
   register: {
-    userEmail: '',
-    password: '',
-    passwordConfirm: '',
-    username: '',
+    memberEmail: '',
+    memberPw: '',
+    memberPwConfirm: '',
+    memberName: '',
+    phoneNumber: '',
   },
   login: {
     userEmail: '',
