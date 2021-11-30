@@ -1,8 +1,20 @@
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
+import { takeLatest } from 'redux-saga/effects';
+import createRequestSage, { createRequestActionTypes } from '../lib/createRequestSage';
+
+import * as authAPI from '../lib/api/auth'
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
-const INITIALIZE_FORM = ''
+const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
+
+const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
+  'auth/REGISTER',
+);
+
+const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
+  'auth/LOGIN',
+)
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -13,7 +25,27 @@ export const changeField = createAction(
   }),
 );
 
+// Actions
+
 export const initializeForm = createAction(INITIALIZE_FORM, form => form); // register, login
+
+export const register = createAction(REGISTER, ({userEmail, password}) => ({
+  userEmail,
+  password
+}))
+
+export const login = createAction(LOGIN, ({ userEmail, password }) => ({
+  userEmail,
+  password
+}))
+
+// 사가 생성
+const registerSage = createRequestSage(REGISTER, authAPI.register);
+const loginSaga = createRequestSage(LOGIN, authAPI.login);
+export function* authSage() {
+  yield takeLatest(REGISTER, registerSage);
+  yield takeLatest(LOGIN, loginSaga);
+}
 
 const initialState = {
   register: {
@@ -25,7 +57,9 @@ const initialState = {
   login: {
     userEmail: '',
     password: ''
-  }
+  },
+  auth: null,
+  authError: null
 }
 const auth = handleActions(
   {
@@ -37,6 +71,28 @@ const auth = handleActions(
       ...state,
       [form]: initialState[form],
     }),
+    // 회원가입 성공
+    [REGISTER_SUCCESS]: (state, { payload: auth }) => ({
+      ...state,
+      authError: null,
+      auth,
+    }),
+    // 회원가입 실패
+    [REGISTER_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      authError: error,
+    }),
+    // 로그인 성공
+    [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
+      ...state,
+      authError: null,
+      auth,
+    }),
+    // 로그인 실패
+    [LOGIN_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      authError: error,
+    })
   },
   initialState,
 )
