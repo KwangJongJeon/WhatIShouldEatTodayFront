@@ -30,7 +30,7 @@ const RegisterForm = () => {
     e.preventDefault();
     const { memberEmail, memberPw, memberPwConfirm, memberName, phoneNumber } = form;
     if(memberPw !== memberPwConfirm) {
-      // TODO: 오류 처리
+      alert("패스워드가 일치하지 않습니다. 다시 확인해주세요!")
       return;
     }
     dispatch(register({memberEmail, memberPw, memberName, phoneNumber}));

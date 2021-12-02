@@ -13,7 +13,7 @@ export const tempSetUser = createAction(TEMP_SET_USER, user => user);
 export const check = createAction(CHECK);
 
 const checkSaga = createRequestSage(CHECK, authAPI.check);
-export function* userSage() {
+export function* userSaga() {
   yield takeLatest(CHECK, checkSaga);
 }
 

@@ -1,8 +1,11 @@
 import client from './client';
 
 // 로그인
-export const login = ({ userEmail, password }) => {
-  client.post('/api/auth/login', { userEmail, password });
+export const login = ({ memberEmail, memberPw }) => {
+  const formData = new FormData();
+  formData.append('memberEmail', memberEmail);
+  formData.append('memberPw', memberPw);
+  client.post('/api/auth/login', formData);
 }
 
 // 회원가입

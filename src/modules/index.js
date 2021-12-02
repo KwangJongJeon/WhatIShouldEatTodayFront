@@ -5,9 +5,9 @@ import recommendation from "./recommendation";
 import userDataSubmitForm from './userDataSubmitForm';
 
 import { all } from 'redux-saga/effects';
-import auth, { authSage } from './auth';
+import auth, { authSaga } from './auth';
 import loading from './loading';
-import user, { userSage } from './user';
+import user, { userSaga } from './user';
 
 const rootReducer = combineReducers({
   categories,
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
 })
 
 export function* rootSage() {
-  yield all([authSage(), userSage()])
+  yield all([authSaga(), userSaga()])
 }
 
 export default rootReducer;

@@ -36,15 +36,15 @@ export const register = createAction(REGISTER, ({memberEmail, memberPw, memberNa
   phoneNumber,
 }))
 
-export const login = createAction(LOGIN, ({ userEmail, password }) => ({
-  userEmail,
-  password
+export const login = createAction(LOGIN, ({ memberEmail, memberPw }) => ({
+  memberEmail,
+  memberPw
 }))
 
 // 사가 생성
 const registerSage = createRequestSage(REGISTER, authAPI.register);
 const loginSaga = createRequestSage(LOGIN, authAPI.login);
-export function* authSage() {
+export function* authSaga() {
   yield takeLatest(REGISTER, registerSage);
   yield takeLatest(LOGIN, loginSaga);
 }

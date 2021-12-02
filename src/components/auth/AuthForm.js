@@ -37,6 +37,13 @@ const StyledInput = styled.input`
   }
 `
 
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`
+
 /** 폼 하단에 로그인 혹은 회원가입 링크를 보여줌 */
 const Footer = styled.div`
   margin-top: 2rem;
@@ -59,7 +66,7 @@ const ButtonWithMarginTop = styled(Button)`
   margin-top: 1rem;
 `
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
@@ -108,6 +115,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
 
           </>
         )}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
       </form>
       <Footer>
