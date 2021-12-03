@@ -10,7 +10,7 @@ export const createRequestActionTypes = type => {
 
 export default function createRequestSage(type, request) {
   const SUCCESS = `${type}_SUCCESS`;
-  const FAILURE = '${type}_FAILURE';
+  const FAILURE = `${type}_FAILURE`;
 
   return function*(action) {
     yield put(startLoading(type));

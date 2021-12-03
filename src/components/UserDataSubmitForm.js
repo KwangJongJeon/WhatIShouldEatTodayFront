@@ -1,22 +1,16 @@
 import Categories from './Categories';
 import DistanceSelector from './DistanceSelector';
-import { usePosition } from '../lib/usePosition';
 
 const UserDataSubmitForm = ({
   categories,
   distance,
-  onGetCoordinate,
   onToggle,
   onChangeDistance,
-
+  onSubmit,
 }) => {
 
-  const { latitude, longitude } = usePosition();
 
-  const onSubmit = e => {
-    e.preventDefault()
-    onGetCoordinate(latitude, longitude);
-  }
+
 
   return (
     <div className={"UserSubmitForm"}>

@@ -16,7 +16,3 @@ export const register = ({ memberEmail, memberPw, memberName, phoneNumber }) => 
 // 로그인 상태 확인
 export const check = () => client.get('/api/auth/check');
 
-// 추천시스템
-export const recommendation = ({ latitude, longitude, range, categories }) => {
-  client.post('/api/recommendation');
-}

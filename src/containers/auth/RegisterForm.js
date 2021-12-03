@@ -3,9 +3,11 @@ import { changeField, initializeForm, register } from '../../modules/auth';
 import { useEffect } from 'react';
 import AuthForm from '../../components/auth/AuthForm';
 import { check } from '../../modules/user';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { form, auth, authError, user} = useSelector(({ auth, user }) => ({
     form: auth.register,
     auth: auth.auth,
@@ -34,6 +36,8 @@ const RegisterForm = () => {
       return;
     }
     dispatch(register({memberEmail, memberPw, memberName, phoneNumber}));
+    // TODO: 수정 필요(check 사용시 이동되도록 바꿀 필요가 있음)
+    navigate('/login');
   }
 
   // 컴포넌트가 처음 렌더링 될 때 form을 초기화 함
