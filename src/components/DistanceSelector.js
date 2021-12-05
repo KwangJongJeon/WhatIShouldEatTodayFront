@@ -1,8 +1,8 @@
-const DistanceSelector = ({distance, onChangeInput}) => {
+const DistanceSelector = ({range, onChangeInput}) => {
 
   const minDistance = "500";
   const maxDistance = "5000";
-  console.log("distance: " + distance)
+  console.log("distance: " + range)
 
   const onChange = e => {
     onChangeInput(e.target.value);
@@ -10,7 +10,7 @@ const DistanceSelector = ({distance, onChangeInput}) => {
 
   return(
 
-    <div className={'distance'}>
+    <div className={'range'}>
 
       <input
         type={"range"}

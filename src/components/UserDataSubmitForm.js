@@ -1,11 +1,11 @@
 import Categories from './Categories';
 import DistanceSelector from './DistanceSelector';
+import Button from './common/Button';
 
 const UserDataSubmitForm = ({
   categories,
-  distance,
-  onToggle,
-  onChangeDistance,
+  range,
+  onToggle, onChangeRange,
   onSubmit,
 }) => {
 
@@ -15,10 +15,10 @@ const UserDataSubmitForm = ({
   return (
     <div className={"UserSubmitForm"}>
       {/*{onSubmit}*/}
-      <form className={"submitForm"} >
-        <DistanceSelector distance={distance} onChangeInput={onChangeDistance}/>
+      <form className={"submitForm"} onSubmit={onSubmit} >
+        <DistanceSelector range={range} onChangeInput={onChangeRange}/>
         <Categories categories={categories} onToggle={onToggle}/>
-        <a href={"/result"} role={"button"} onSubmit={onSubmit}>식사 추천</a>
+        <Button >식사 추천</Button>
       </form>
     </div>
   )

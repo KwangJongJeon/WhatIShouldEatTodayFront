@@ -1,4 +1,4 @@
-import createRequestSage, { createRequestActionTypes } from '../lib/createRequestSage';
+import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
 import { createAction, handleActions } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
 import * as authAPI from '../lib/api/auth';
@@ -12,7 +12,7 @@ const [ CHECK, CHECK_SUCCESS, CHECK_FAILURE ] = createRequestActionTypes(
 export const tempSetUser = createAction(TEMP_SET_USER, user => user);
 export const check = createAction(CHECK);
 
-const checkSaga = createRequestSage(CHECK, authAPI.check);
+const checkSaga = createRequestSaga(CHECK, authAPI.check);
 export function* userSaga() {
   yield takeLatest(CHECK, checkSaga);
 }

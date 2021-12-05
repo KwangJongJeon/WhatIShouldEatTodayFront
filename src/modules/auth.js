@@ -1,7 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
 import { takeLatest } from 'redux-saga/effects';
-import createRequestSage, { createRequestActionTypes } from '../lib/createRequestSage';
+import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
 
 import * as authAPI from '../lib/api/auth'
 
@@ -42,8 +42,8 @@ export const login = createAction(LOGIN, ({ memberEmail, memberPw }) => ({
 }))
 
 // 사가 생성
-const registerSage = createRequestSage(REGISTER, authAPI.register);
-const loginSaga = createRequestSage(LOGIN, authAPI.login);
+const registerSage = createRequestSaga(REGISTER, authAPI.register);
+const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSage);
   yield takeLatest(LOGIN, loginSaga);

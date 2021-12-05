@@ -1,10 +1,10 @@
 import { createAction, handleActions } from 'redux-actions';
-import createRequestSage, { createRequestActionTypes } from '../lib/createRequestSage';
+import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
 
 import * as recommendationAPI from '../lib/api/recommendation'
 import { takeLatest } from 'redux-saga/effects';
 
-const CHANGE_DISTANCE = 'userDataSubmitForm/CHANGE_DISTANCE';
+const CHANGE_RANGE = 'userDataSubmitForm/CHANGE_RANGE';
 const CATEGORY_TOGGLE = 'userDataSubmitForm/TOGGLE';
 const GET_COORDINATE = 'userDataSubmitForm/GET_COORDINATE';
 
@@ -12,7 +12,7 @@ const [RECOMMENDATION, RECOMMENDATION_SUCCESS, RECOMMENDATION_FAILURE] = createR
   'userDataSubmitForm/RECOMMENDATION',
 )
 
-export const changeDistance = createAction(CHANGE_DISTANCE, distance => distance);
+export const changeRange = createAction(CHANGE_RANGE, range => range);
 
 export const categoryToggle = createAction(CATEGORY_TOGGLE, id=>id);
 
@@ -24,15 +24,12 @@ export const getCoordinate = createAction(GET_COORDINATE, coordinate => ({
 }));
 
 
-export const recommendation = createAction(RECOMMENDATION, ({ distance, latitude, longitude, categories }) => ({
-  distance,
+export const recommendation = createAction(RECOMMENDATION, ({ range, latitude, longitude, categories }) => ({
+  range,
   latitude,
   longitude,
   categories,
 }))
-
-const recommendationSaga = createRequestSage(RECOMMENDATION, recommendationAPI);
-
 
 export const getLocationAsync = () => dispatch => {
   const geoLocation = navigator.geolocation;
@@ -41,12 +38,15 @@ export const getLocationAsync = () => dispatch => {
   })
 }
 
+
+const recommendationSaga = createRequestSaga(RECOMMENDATION, recommendationAPI.recommendation);
+
 export function* userDataFormSaga() {
   yield takeLatest(RECOMMENDATION, recommendationSaga);
 }
 
 const initialState = {
-  distance: 1000,
+  range: 1000,
   categories: [
     {
     id: 1,
@@ -75,7 +75,7 @@ const initialState = {
 // reducer
 const userDataSubmitForm = handleActions(
   {
-    [CHANGE_DISTANCE]: (state, action) => ({...state, distance: action.payload}),
+    [CHANGE_RANGE]: (state, action) => ({...state, range: action.payload}),
     [GET_COORDINATE]: (state, action) => ({...state, coordinate: action.payload}),
     [CATEGORY_TOGGLE]: (state, action) => ({
       ...state,

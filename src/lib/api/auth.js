@@ -5,12 +5,13 @@ export const login = ({ memberEmail, memberPw }) => {
   const formData = new FormData();
   formData.append('memberEmail', memberEmail);
   formData.append('memberPw', memberPw);
-  client.post('/api/auth/login', formData);
+  return client.post('/api/auth/login', formData);
+
 }
 
 // 회원가입
 export const register = ({ memberEmail, memberPw, memberName, phoneNumber }) => {
-  client.post('/api/auth/register', { memberEmail, memberPw, memberName, phoneNumber});
+  return client.post('/api/auth/register', { memberEmail, memberPw, memberName, phoneNumber});
 }
 
 // 로그인 상태 확인

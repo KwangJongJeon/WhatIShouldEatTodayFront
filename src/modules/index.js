@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import categories from './categories';
 import distanceSelector from './distanceSelector';
-import recommendation from "./recommendation";
 import userDataSubmitForm, { userDataFormSaga } from './userDataSubmitForm';
 
 import { all } from 'redux-saga/effects';
@@ -12,7 +11,6 @@ import user, { userSaga } from './user';
 const rootReducer = combineReducers({
   categories,
   distanceSelector,
-  recommendation,
   userDataSubmitForm,
   auth,
   loading,
