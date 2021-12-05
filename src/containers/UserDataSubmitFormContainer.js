@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   categoryToggle,
   changeRange,
@@ -10,8 +10,8 @@ import { usePosition } from '../lib/usePosition';
 import { useNavigate } from 'react-router-dom';
 
 const UserDataSubmitFormContainer = () => {
+  const { latitude, longitude } = usePosition();
 
-  const {latitude, longitude} = usePosition()
   const navigate = useNavigate();
 
   const {range, categories, coordinate} = useSelector(({userDataSubmitForm}) => ({
@@ -23,7 +23,7 @@ const UserDataSubmitFormContainer = () => {
     }
   }));
 
-  // 좌표가져오기
+  // 좌표가져오기, 카카오 API 가져오기
   useEffect(() => {
     dispatch(getLocationAsync());
   }, [])
@@ -47,7 +47,8 @@ const UserDataSubmitFormContainer = () => {
   return (
     <UserDataSubmitForm
       range={range}
-      coordinate={coordinate}
+      latitude={latitude}
+      longitude={longitude}
       categories={categories}
       onToggle={onToggle}
       onChangeRange={onChangeRange}

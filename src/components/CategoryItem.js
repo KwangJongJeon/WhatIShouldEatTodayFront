@@ -1,14 +1,15 @@
 const CategoryItem = ({category, onToggle}) => {
   return (
-    <div>
+    <div className={'form-check form-check-inline pb-5'}>
       <input
+        className={'form-check-input'}
         type={"checkbox"}
         id={category.id}
         onClick={() => onToggle(category.id)}
         checked={category.selected}
         readOnly={true}
       />
-      <span>{category.text}</span>
+      <label className={'form-check-label'} htmlFor={category.id}>{category.text}</label>
     </div>
   )
 }

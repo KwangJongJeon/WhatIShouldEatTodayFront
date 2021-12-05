@@ -8,8 +8,8 @@ const Categories = ({
 
   return (
     <div>
-      {categories.text? categories : categories[0].text}
       <div className={'category'}>
+        <h6> 카테고리 선택</h6>
         {categories.map(category => (
           <CategoryItem
             category={category}

@@ -5,7 +5,6 @@ const UserDataSubmitPage = () => {
   return (
     <div className={'container'}>
       <UserDataSubmitFormContainer/>
-      <button type={'button'} className={'btn btn-primary'}>Primary</button>
     </div>
   )
 }
