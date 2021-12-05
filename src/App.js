@@ -7,6 +7,7 @@ import UserDataSubmitPage from './pages/UserDataSubmitPage';
 import Header from './components/page/Header';
 import HomePage from './pages/HomePage';
 import Footer from './components/page/Footer';
+import ContactPage from './pages/ContactPage';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route element={<HomePage/>} path={'/'}/>
         <Route element={<UserDataSubmitPage/>} path={'/recommendation'}/>
         <Route element={<RecommendationResult/>} path={'/recommendationResult/:id'}/>
+        <Route element={<ContactPage/>} path={'/contact'}/>
         <Route element={<LoginPage/>} path="/login" />
         <Route element={<RegisterPage/>} path="/register" />
       </Routes>
