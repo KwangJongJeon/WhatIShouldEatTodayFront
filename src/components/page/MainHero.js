@@ -17,26 +17,27 @@ const MainHero = () => {
 
 
         <div className={'col-lg-6'}>
-          <h1 className={'display-5 fw-bold lh-1 mb-3'}>Responsive left-aligned hero with image</h1>
+          <h1 className={'display-5 fw-bold lh-1 mb-3'}>오늘의 식사 추천</h1>
           <p className={'lead'}>
-            Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+            카카오 API를 이용, 근처의 식당을 자동으로 탐색하고 추천해줌으로써 사용자의 식사 선택 시간을 줄여줍니다.
           </p>
+          <div className={'d-grid gap-2 d-md-flex justify-content-md-start mt-5'}>
+            <a
+              href={'/recommendation'}
+              type={'button'}
+              className={'btn btn-success btn-lg px-4 me-md-2'}>
+              식사 추천
+            </a>
+            <a
+              href={'/feature'}
+              type={'button'}
+              className={'btn btn-outline-secondary btn-lg px-4'}
+            >Feature</a>
+          </div>
         </div>
 
 
-        <div className={'d-grid gap-2 d-md-flex justify-content-md-start'}>
-          <a
-            href={'/recommendation'}
-            type={'button'}
-            className={'btn btn-success btn-lg px-4 me-md-2'}>
-            식사 추천
-          </a>
-          <a
-            href={'/feature'}
-            type={'button'}
-            className={'btn btn-outline-secondary btn-lg px-4'}
-          >Feature</a>
-        </div>
+
       </div>
     </div>
   )

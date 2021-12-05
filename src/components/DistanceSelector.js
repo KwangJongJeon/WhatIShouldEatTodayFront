@@ -9,8 +9,8 @@ const DistanceSelector = ({range, onChangeInput}) => {
   }
 
   return(
-
     <div className={'range'}>
+
 
       <input
         type={"range"}
