@@ -33,15 +33,15 @@ const UserDataSubmitFormContainer = () => {
   const onToggle = useCallback(id => dispatch(categoryToggle(id)), [dispatch]);
   const onChangeRange = useCallback(distance => dispatch(changeRange(distance)), [dispatch]);
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    dispatch(recommendation({
+    await dispatch(recommendation({
       range: range,
       latitude: coordinate.latitude,
       longitude: coordinate.longitude,
       categories: categories
     }));
-    // navigate('./recommendationResult');
+    await navigate('/recommendationResult');
   }
 
   return (

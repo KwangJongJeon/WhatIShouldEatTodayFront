@@ -17,7 +17,7 @@ const MainHero = () => {
 
 
         <div className={'col-lg-6'}>
-          <h1 className={'display-5 fw-bold lh-1 mb-3'}>오늘의 식사 추천</h1>
+          <h1 className={'display-5 fw-bold lh-1 mb-3'}>근처의 식당 추천</h1>
           <p className={'lead'}>
             카카오 API를 이용, 근처의 식당을 자동으로 탐색하고 추천해줌으로써 사용자의 식사 선택 시간을 줄여줍니다.
           </p>

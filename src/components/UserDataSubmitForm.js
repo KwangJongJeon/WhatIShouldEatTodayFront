@@ -16,7 +16,7 @@ const UserDataSubmitForm = ({
       <form className={"container"} onSubmit={onSubmit} >
         <DistanceSelector range={range} onChangeInput={onChangeRange}/>
         <Categories categories={categories} onToggle={onToggle}/>
-        <KakaoMap latitude={latitude} longitude={longitude} range={range}/>
+        <KakaoMap latitude={latitude} longitude={longitude} range={range} zoomLevel={6} useCircle={true}/>
         <div className={'container align-items-center justify-content-end'}>
         <Button>식사 추천</Button>
         </div>

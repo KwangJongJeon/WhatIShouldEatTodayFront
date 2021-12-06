@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+import logo from '../../images/logo2.png'
+import './Header.css';
 
 const Header = () => {
   return (
@@ -7,7 +8,7 @@ const Header = () => {
       <a
         href={'/'}
         className={'d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none'}>
-        LOGO
+        <img src={logo}/>
       </a>
       <ul className={'nav col-12 col-md-auto mb-2 justify-content-center mb-md-0'}>
         <li><a href="/recommendation" className="nav-link px-2 link-secondary">식사 추천</a></li>
