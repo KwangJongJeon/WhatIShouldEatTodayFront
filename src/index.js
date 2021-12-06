@@ -17,6 +17,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // import { composeWithDevTools } from 'redux-devtools-extension';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { check, tempSetUser } from './modules/user';
 
 const logger = createLogger();
 
@@ -26,7 +27,23 @@ const store = createStore(rootReducer,
   composeWithDevTools(applyMiddleware(logger, ReduxThunk, sagaMiddleware))
 );
 
+
+// 로그인 정보를 localStorage에 저장하여
+// 새로고침시에도 정보를 유지하도록 해줌
+function loadUser() {
+  try {
+    const user = localStorage.getItem('user');
+    if(!user) return; // 로그인 상태가 아니라면 아무것도 안 함
+
+    store.dispatch(tempSetUser(JSON.parse(user)));
+    store.dispatch(check());
+  } catch (e) {
+    console.log('localStorage is not working!');
+  }
+}
+
 sagaMiddleware.run(rootSage)
+loadUser()
 
 ReactDOM.render(
   <Provider store={store}>
