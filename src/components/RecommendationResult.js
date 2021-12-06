@@ -3,6 +3,8 @@ import KakaoMap from './KakaoMap';
 const RecommendationResult = ({ recommendationResult, coordinate, loadingRecommendation }) => {
   return (
     <div>
+      {loadingRecommendation && <h1>로딩중입니다...</h1>}
+      {!loadingRecommendation && !recommendationResult && <div><h1>추천결과가 없습니다!</h1></div>}
       {!loadingRecommendation && recommendationResult && (
         <div>
           <h1>추천 결과</h1>
@@ -24,7 +26,7 @@ const RecommendationResult = ({ recommendationResult, coordinate, loadingRecomme
           </p>
           <h2>위치</h2>
           <KakaoMap latitude={coordinate.latitude} longitude={coordinate.longitude}
-                    storeLat={recommendationResult.y} storeLng={recommendationResult.x} zoomLevel={3}/>
+                    storeLat={recommendationResult.y} storeLng={recommendationResult.x} zoomLevel={5}/>
         </div>
       )}
 

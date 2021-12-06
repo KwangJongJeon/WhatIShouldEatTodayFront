@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './KakaoMap.css';
+import { BiWebcam } from 'react-icons/all';
 
 const { kakao } = window;
 
@@ -41,6 +42,11 @@ const KakaoMap = ({ latitude, longitude, range, zoomLevel, useCircle, storeLat, 
     const map = new kakao.maps.Map(container, options);
 
 
+
+
+
+
+
     // 마커와 인포윈도우에 대한 정보들을 집어넣음
     // 들어가있는값: id, marker, InfoWindow
     const Infos = []
@@ -50,7 +56,6 @@ const KakaoMap = ({ latitude, longitude, range, zoomLevel, useCircle, storeLat, 
     if(storeLat && storeLng) {
       createMakerThenPushInInfos('store', storeLat, storeLng, Infos)
     }
-
     for (const info of Infos) {
       info.marker.setMap(map);
     }
@@ -81,16 +86,13 @@ const KakaoMap = ({ latitude, longitude, range, zoomLevel, useCircle, storeLat, 
     if(storeLat, storeLng) {
       createInfoWindowOnMarkerInInfos('store', storeInfoWindowContent, map, Infos);
     }
+
+
+    // 로드뷰 생성
+
   })
 
-  const createMarker = (lat, lng) => {
-    const markerPosition = new kakao.maps.LatLng(lat, lng);
-    const marker = new kakao.maps.Marker({
-      position: markerPosition
-    });
 
-    return marker;
-  }
 
   const createMakerThenPushInInfos = (id, lat, lng, Infos) => {
     const markerPosition = new kakao.maps.LatLng(lat, lng);
@@ -104,8 +106,8 @@ const KakaoMap = ({ latitude, longitude, range, zoomLevel, useCircle, storeLat, 
       infoWindow: null,
     })
 
-    // return Infos.map((info) => info.id === id ? info.marker = marker : info.marker);
   }
+
 
 
   /**
@@ -140,14 +142,15 @@ const KakaoMap = ({ latitude, longitude, range, zoomLevel, useCircle, storeLat, 
 
 
 
+
   return (
     <div
       id={'kakaoMap'}
       className={'mb-5'}
       style={{
-      width: '500px',
+      width: '100%',
       height: '500px',
-    }}></div>
+    }}><button>{BiWebcam()} 로드뷰 보기</button></div>
   )
 }
 

@@ -115,7 +115,11 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
 
           </>
         )}
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {error &&
+        <div>
+          <ErrorMessage>아이디와 패스워드를 다시 확인해주세요.</ErrorMessage>
+        </div>
+          }
         <ButtonWithMarginTop cyan fullWidth>{text}</ButtonWithMarginTop>
       </form>
       <Footer>

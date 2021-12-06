@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import MainHero from '../components/page/MainHero';
 import RecommendationResult from '../components/RecommendationResult';
 
 const RecommendationResultContainer = () => {
