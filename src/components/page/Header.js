@@ -1,8 +1,13 @@
-import styled from 'styled-components';
 import logo from '../../images/logo2.png'
+import styled from 'styled-components';
 import './Header.css';
 
-const Header = () => {
+const UserInfo = styled.div`
+  font-weight: 800;
+  margin-right: 1rem;
+`
+
+const Header = ({user}) => {
   return (
     <header className={'d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom'}>
       <a
@@ -15,10 +20,16 @@ const Header = () => {
         <li><a href="/feature" className="nav-link px-2 link-dark">설계</a></li>
         <li><a href="/contact" className="nav-link px-2 link-dark">Contact</a></li>
       </ul>
-      <div className="col-md-3 text-end">
-        <a href={'/login'} type="button" className="btn btn-outline-success me-2">로그인</a>
-        <a href={'/register'} type="button" className="btn btn-success">회원가입</a>
-      </div>
+        {user ? <div className="col-md-3 text-end">
+          <UserInfo className={'m-lg-2'}>{user.nickName}님 안녕하세요!</UserInfo>
+          <a href={'/logout'} type="button" className="btn btn-dark">로그아웃</a>
+        </div> :
+          <div>
+            <a href={'/login'} type="button" className="btn btn-outline-success me-2">로그인</a>
+            <a href={'/register'} type="button" className="btn btn-success">회원가입</a>
+          </div>
+          }
+
     </header>
   )
 }
