@@ -7,7 +7,7 @@ const UserInfo = styled.div`
   margin-right: 1rem;
 `
 
-const Header = ({user}) => {
+const Header = ({user, onLogout}) => {
   return (
     <header className={'d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom'}>
       <a
@@ -22,11 +22,11 @@ const Header = ({user}) => {
       </ul>
         {user ? <div className="col-md-3 text-end">
           <UserInfo className={'m-lg-2'}>{user.nickName}님 안녕하세요!</UserInfo>
-          <a href={'/logout'} type="button" className="btn btn-dark">로그아웃</a>
+          <a type="button" className="btn btn-dark" onClick={onLogout}>로그아웃</a>
         </div> :
           <div>
             <a href={'/login'} type="button" className="btn btn-outline-success me-2">로그인</a>
-            <a href={'/register'} type="button" className="btn btn-success">회원가입</a>
+            {/*<a href={'/register'} type="button" className="btn btn-success">회원가입</a>*/}
           </div>
           }
 
