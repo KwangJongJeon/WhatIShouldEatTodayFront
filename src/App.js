@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import Footer from './components/page/Footer';
 import ContactPage from './pages/ContactPage';
 import HeaderContainer from './containers/HeaderContainer';
+import UserMyPagePage from './pages/UserMyPagePage';
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
         <Route element={<RecommendationResultPage/>} path={'/recommendationResult'}/>
         <Route element={<ContactPage/>} path={'/contact'}/>
         <Route element={<LoginPage/>} path="/login" />
-        <Route element={<RegisterPage/>} path="/register" />
+        <Route element={<RegisterPage/>} path='/register' />
+        <Route element={<UserMyPagePage/>} path={'/userMyPage'} />
       </Routes>
       <Footer/>
     </div>

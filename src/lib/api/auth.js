@@ -20,3 +20,11 @@ export const check = () => client.get('/api/auth/check');
 // 로그아웃
 export const logout = () => client.get('/api/auth/logout');
 
+// 사용자 정보 가져오기
+export const getUserInfo = () => client.get('/api/auth/getMember');
+
+// 사용자 정보 수정
+export const editUserInfo = ({ memberId, memberEmail, memberName, nickName, phoneNumber}) => {
+  return client.post('/api/auth/editMember', {memberId, memberEmail, memberName, nickName, phoneNumber});
+}
+

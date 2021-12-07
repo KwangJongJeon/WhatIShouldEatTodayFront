@@ -16,6 +16,7 @@ const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN',
 )
 
+
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({
@@ -40,6 +41,7 @@ export const login = createAction(LOGIN, ({ memberEmail, memberPw }) => ({
   memberEmail,
   memberPw
 }))
+
 
 // 사가 생성
 const registerSage = createRequestSaga(REGISTER, authAPI.register);

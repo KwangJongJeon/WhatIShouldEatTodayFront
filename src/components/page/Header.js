@@ -21,8 +21,9 @@ const Header = ({user, onLogout}) => {
         <li><a href="/contact" className="nav-link px-2 link-dark">Contact</a></li>
       </ul>
         {user ? <div className="col-md-3 text-end">
-          <UserInfo className={'m-lg-2'}>{user.nickName}님 안녕하세요!</UserInfo>
-          <a type="button" className="btn btn-dark" onClick={onLogout}>로그아웃</a>
+          <UserInfo className={'me-5'}>{user.nickName? user.nickName : user.memberEmail}</UserInfo>
+          <a type={'button'} href={'/userMyPage'} className={'btn btn-outline-dark mx-3 my-2'}>마이페이지</a>
+          <a type={'button'} className="btn btn-dark" onClick={onLogout}>로그아웃</a>
         </div> :
           <div>
             <a href={'/login'} type="button" className="btn btn-outline-success me-2">로그인</a>
