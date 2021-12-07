@@ -19,7 +19,7 @@ const RecommendationResult = ({ recommendationResult, coordinate, loadingRecomme
           도로명 주소: {recommendationResult.road_address_name}
           </p>
           <p>
-          자세한 정보: {recommendationResult.place_url}
+            자세한 정보: <a href={recommendationResult.place_url}>카카오에서 정보 보기</a>
           </p>
           <p>
           현재 지역으로부터의 거리: {recommendationResult.distance}
