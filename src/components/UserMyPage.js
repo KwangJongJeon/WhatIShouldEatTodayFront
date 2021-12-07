@@ -1,4 +1,14 @@
-const UserMyPage = ({userDetails, onChange, onSubmit}) => {
+import styled from 'styled-components';
+
+const UserMyPage = ({userDetails, onChange, onSubmit, error}) => {
+
+  const ErrorMessage = styled.div`
+    color: red;
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+  `
+
   let midLength = 0;
   return (
       <div>
@@ -46,6 +56,10 @@ const UserMyPage = ({userDetails, onChange, onSubmit}) => {
               </div>
             </div>
             <div>
+              {
+                error &&
+                  <ErrorMessage>{error}</ErrorMessage>
+              }
               <button className={'btn-dark mt-5 p-2'}>회원정보 수정</button>
             </div>
           </form>

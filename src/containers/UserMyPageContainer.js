@@ -31,7 +31,7 @@ const UserMyPageContainer = () => {
     const { memberId, memberEmail, memberName, nickName, phoneNumber } = form;
     if(!(phoneNumber.length === 10 || phoneNumber.length === 11)) {
       dispatch(changeField({form: 'userDetails', key: 'phoneNumber', value: ''}))
-      setError('잘못된 전화번호를 입력하셨습니다.');
+      setError('전화번호의 형식이 잘못되었습니다. 다시 입력해주세요!');
       return;
     }
     dispatch(editUserInfo({ memberId, memberEmail, memberName, nickName, phoneNumber}));
