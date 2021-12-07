@@ -29,10 +29,10 @@ const MainHero = () => {
               식사 추천
             </a>
             <a
-              href={'/feature'}
+              href={'/contact'}
               type={'button'}
               className={'btn btn-outline-secondary btn-lg px-4'}
-            >Feature</a>
+            >Contact</a>
           </div>
         </div>
 
