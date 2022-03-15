@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// 서버에서 직접 변경해야합니다.
+// gitignore 항목에 포함되어 github에 푸시되지 않습니다.
 export const postRecommendation = (latitude, longitude, distance, categories) => {
   return axios({
     url: '/api/recommend',
