@@ -25,3 +25,4 @@ yarn-error.log*
 AppDatas.js
 
 ./src/lib/api.js
+./src/lib/client.js

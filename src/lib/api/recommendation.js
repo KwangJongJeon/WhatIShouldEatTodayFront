@@ -8,5 +8,5 @@ export const recommendation = ({ latitude, longitude, range, categories }) => {
     longitude: longitude,
     range: range,
     categories: processedCategories
-  })
+  }, {withCredentials: true})
 }
