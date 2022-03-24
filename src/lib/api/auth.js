@@ -11,7 +11,8 @@ export const login = ({ memberEmail, memberPw }) => {
 
 // 회원가입
 export const register = ({ memberEmail, memberPw, memberName, phoneNumber }) => {
-  return client.post('/api/auth/register', { memberEmail, memberPw, memberName, phoneNumber});
+  return client.post('/api/auth/register', { memberEmail, memberPw, memberName, phoneNumber},
+    {withCredentials: true});
 }
 
 // 로그인 상태 확인
