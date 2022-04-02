@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {applyMiddleware, createStore} from 'redux';
 import rootReducer, { rootSage } from './modules';
 
+import { config } from 'dotenv'
+
 import { Provider } from 'react-redux';
 import {createLogger} from "redux-logger/src";
 import ReduxThunk from 'redux-thunk';
@@ -20,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { check, tempSetUser } from './modules/user';
 
 const logger = createLogger();
+console.log(process.env.REACT_APP_KAKAO_API_KEY);
 
 // Redux store
 const sagaMiddleware = createSagaMiddleware();

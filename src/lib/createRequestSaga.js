@@ -19,9 +19,11 @@ export default function createRequestSaga(type, request) {
 
       // login시 response data가 없어서 추가
       // 추후 상태 코드에 따라서 변화되도록 변경 필요
-      if(response.data == '') {
-        response.data = 'success';
-      }
+      // if(response.data === "") {
+      //   response.data = "success";
+      // }
+
+      console.log(response.data);
 
       yield put({
         type: SUCCESS,

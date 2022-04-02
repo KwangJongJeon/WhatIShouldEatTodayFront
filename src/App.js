@@ -11,6 +11,10 @@ import HeaderContainer from './containers/HeaderContainer';
 import UserMyPagePage from './pages/UserMyPagePage';
 
 const App = () => {
+  if(process.env.NODE_ENV === "production") {
+    console.log = function no_console() {};
+    console.warn = function no_console() {};
+  }
   return (
     <div className={'container'}>
       <HeaderContainer/>
